@@ -1,3 +1,5 @@
+//add checkboxes so users can favorite:
+
 const BASE_URL = "https://hack-or-snooze-v3.herokuapp.com";
 
 /**
@@ -47,9 +49,26 @@ class StoryList {
     // TODO - Implement this functions!
     // this function should return the newly created story so it can be used in
     // the script.js file where it will be appended to the DOM
+
+    const token = user.loginToken;
+    const response = await axios.post(`${BASE_URL}/stories`, {
+      token: token,
+      story: {
+        author: user.name,
+        title: "The biggest test ever",
+        url: "http://google.com"
+      }
+    });
+
+    // console.log('addStory Check')
+    // console.log(response);
+    debugger
+    newStory = response.data.story;
+    console.log(newStory);
+    return newStory;
   }
 }
-
+let newUser = StoryList.addStory();
 
 /**
  * The User class to primarily represent the current user.
@@ -149,8 +168,16 @@ class User {
     // instantiate Story instances for the user's favorites and ownStories
     existingUser.favorites = response.data.user.favorites.map(s => new Story(s));
     existingUser.ownStories = response.data.user.stories.map(s => new Story(s));
+
     return existingUser;
   }
+
+  //add favorite method
+  async addFavorite() {
+    $('ol').children().prepend('<input type="checkbox">');
+  }
+
+  //remove favorite method
 }
 
 /**
@@ -174,3 +201,8 @@ class Story {
     this.updatedAt = storyObj.updatedAt;
   }
 }
+
+// let test = new StoryList();
+// console.log(
+//   test.addStory('greenthingsjump', 'google.com')
+// );
