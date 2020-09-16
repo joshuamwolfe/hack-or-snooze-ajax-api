@@ -59,16 +59,30 @@ class StoryList {
         url: "http://google.com"
       }
     });
-
-    // console.log('addStory Check')
-    // console.log(response);
-    debugger
     newStory = response.data.story;
-    console.log(newStory);
     return newStory;
   }
-}
-let newUser = StoryList.addStory();
+//   this.createdAt = userObj.createdAt;
+    // const lginfo = {
+    //     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdyZWVudGhpbmdzanVtcCIsImlhdCI6MTU5ODU2MjY3M30.XmFxuj3va_zaC_w4Pkx6GnKMhanHTramStdzRx5emDM",
+    //     "user": {
+    //         "createdAt": "2020-08-27T21:11:13.698Z",
+    //         "favorites": [],
+    //         "name": "joshua wolfe",
+    //         "stories": [],
+    //         "updatedAt": "2020-08-27T21:11:13.698Z",
+    //         "username": "greenthingsjump"
+    //     }
+    // }
+    // var lgtest = JSON.parse(lginfo);
+    // addStory(lgtest, 'Test Story');
+ }
+    
+    var test = new StoryList();
+    console.log(test);
+
+ 
+
 
 /**
  * The User class to primarily represent the current user.
