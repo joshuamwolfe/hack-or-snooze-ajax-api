@@ -1,0 +1,17 @@
+(html)
+(css)
+    have login link float to the right side
+(javascript)
+    upon login
+        show nav link submit
+        show nav link fav my sto
+            create nav link variables
+        upon click of links
+            show submit form
+    toggle class star
+
+completed:
+    (html)
+        create links for submit favorite and my stories
+    (css)
+    (javascript)

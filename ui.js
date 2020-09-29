@@ -1,4 +1,4 @@
-$(async function () {
+    $(async function () {
     // cache some selectors we'll be using quite a bit
     const $allStoriesList = $("#all-articles-list");
     const $submitForm = $("#submit-form");
@@ -77,11 +77,25 @@ $(async function () {
         $loginForm.slideToggle();
         $createAccountForm.slideToggle();
         $allStoriesList.toggle();
+        //call func to unhide form
     });
 
     /**
      * Event handler for Navigation to Homepage
      */
+
+    /**
+     * Event handlers for clicking on nav links
+     * 
+     */
+    
+    $('#submit').on('click', async function () {
+        $submitForm.toggleClass('hidden');
+    });
+
+    $('#favorites').on('click', async function () {
+        $submitForm.toggleClass('hidden');
+    });
 
     $("body").on("click", "#nav-all", async function () {
         hideElements();
@@ -159,14 +173,14 @@ $(async function () {
 
         // render story markup
         const storyMarkup = $(`
-      <li id="${story.storyId}">
+        <li id="${story.storyId}">
         <a class="article-link" href="${story.url}" target="a_blank">
-          <strong>${story.title}</strong>
+            <strong>${story.title}</strong>
         </a>
         <small class="article-author">by ${story.author}</small>
         <small class="article-hostname ${hostName}">(${hostName})</small>
         <small class="article-username">posted by ${story.username}</small>
-      </li>
+        </li>
     `);
 
         return storyMarkup;
@@ -188,9 +202,11 @@ $(async function () {
 
     function showNavForLoggedInUser() {
         $navLogin.hide();
-        $navLogOut.show();
-    }
+        $navLogOut.show(); 
+        $('.main-nav-links, #user-profile').toggleClass('hidden');
 
+    }
+    /* Event Handler for show */
     /* simple function to pull the hostname from a URL */
 
     function getHostName(url) {
@@ -218,4 +234,4 @@ $(async function () {
             localStorage.setItem("username", currentUser.username);
         }
     }
-});
+    });
